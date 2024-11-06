@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  api_gateway:
+    build:
+      context: ./api_gateway  # Path to your API Gateway service
+    ports:
+      - "8000:8000"  # Exposing port 8000
+    environment:
+      - AUTHORIZATION_SERVICE_URL=http://authorization_service:8001
+      - USER_SERVICE_URL=http://user_service:8002
+    networks:
+      - my_network
+
+  authorization_service:
+    build:
+      context: ./authorization_service  # Path to your Authorization service
+    ports:
+      - "8001:8001"  # Exposing port 8001
+    networks:
+      - my_network
+
+  user_service:
+    build:
+      context: ./user_service  # Path to your User service
+    ports:
+      - "8002:8002"  # Exposing port 8002
+    networks:
+      - my_network
+
+  db:  # PostgreSQL Service
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: user_service  # Database name
+      POSTGRES_USER: azharkhan  # Database user
+      POSTGRES_PASSWORD: azhar@123  # Database password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist data
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge  # Use bridge networking
+
+volumes:
+  postgres_data:  # Define a volume for PostgreSQL data

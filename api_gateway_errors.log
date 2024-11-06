@@ -1,0 +1,56 @@
+ERROR 2024-11-01 05:54:12,038 log Internal Server Error: /api/users/login/
+Traceback (most recent call last):
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/decorators.py", line 19, in _wrapped
+    ratelimited = is_ratelimited(request=request, group=group, fn=fn,
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/core.py", line 153, in is_ratelimited
+    usage = get_usage(request, group, fn, key, rate, method, increment)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/core.py", line 169, in get_usage
+    if not _method_match(request, method):
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/core.py", line 93, in _method_match
+    return request.method in [m.upper() for m in method]
+AttributeError: 'UserLoginView' object has no attribute 'method'
+ERROR 2024-11-01 05:54:12,039 basehttp "POST /api/users/login/ HTTP/1.1" 500 114525
+ERROR 2024-11-01 05:54:34,075 log Internal Server Error: /api/users/login/
+Traceback (most recent call last):
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django/views/generic/base.py", line 70, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/decorators.py", line 19, in _wrapped
+    ratelimited = is_ratelimited(request=request, group=group, fn=fn,
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/core.py", line 153, in is_ratelimited
+    usage = get_usage(request, group, fn, key, rate, method, increment)
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/core.py", line 169, in get_usage
+    if not _method_match(request, method):
+  File "/home/azhar/Admin/venv/lib/python3.10/site-packages/django_ratelimit/core.py", line 93, in _method_match
+    return request.method in [m.upper() for m in method]
+AttributeError: 'UserLoginView' object has no attribute 'method'
+ERROR 2024-11-01 05:54:34,076 basehttp "POST /api/users/login/ HTTP/1.1" 500 114525
